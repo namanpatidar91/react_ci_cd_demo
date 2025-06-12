@@ -1,26 +1,25 @@
-name: CI/CD for React vite app
+name: CI/CD for React Vite App
 
 on:
   push:
-      branches:
-              main
-
+    branches:
+      - main
 
 jobs:
-    build: 
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v3
         with:
-           node-version: '18'
+          node-version: '18'
 
-        name: Install dependies
-        run: npm Install
+      - name: 📦 Install dependencies
+        run: npm install
 
-        name: Build project
+      - name: 🏗️ Build project
         run: npm run build
